@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Ajouter un article</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <form #f="ngForm" (ngSubmit)="submitArticle()">
+    <ion-item>
+      <ion-label> Titre</ion-label>
+      <ion-input type="text"
+                 name="title"
+                 #title="ngModel"
+                 [(ngModel)]="newArticle.title"
+                 required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-input type="text"
+                 name="description"
+                 #description="ngModel"
+                 [(ngModel)]="newArticle.description"
+                  required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Ajouter une photo</ion-label>
+      <ion-input type="file"></ion-input>
+    </ion-item>
+
+    <div padding>
+      <button ion-button color="primary" block type="submit" (click)="submitArticle()">Ajouter un article</button>
+    </div>
+  </form>
+
+  {{ newArticle | json }}
+
+</ion-content>
